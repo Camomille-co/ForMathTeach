@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace jhyf.Data.Identity
 {
@@ -7,8 +8,10 @@ namespace jhyf.Data.Identity
     {
         public int Id { get; set; }
 
+        [Display(Name = "Наименование")]
         public string NameFromLink { get; set; }
 
+        [Display(Name = "Ссылка")]
         public string Linki { get; set; }
     }
 }

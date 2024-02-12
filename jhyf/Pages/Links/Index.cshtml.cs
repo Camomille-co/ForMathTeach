@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using jhyf.Data;
 using jhyf.Data.Identity;
+using Microsoft.AspNetCore.Authorization;
 
 namespace jhyf.Pages.Links
 {
+    [Authorize]
     public class IndexModel : PageModel
     {
         private readonly jhyf.Data.ApplicationDbContext _context;
