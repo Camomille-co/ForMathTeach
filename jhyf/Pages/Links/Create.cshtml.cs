@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using jhyf.Data;
 using jhyf.Data.Identity;
+using Microsoft.AspNetCore.Authorization;
 
 namespace jhyf.Pages.Links
 {
+    [Authorize(Roles = "Admin")]
     public class CreateModel : PageModel
     {
         private readonly jhyf.Data.ApplicationDbContext _context;
