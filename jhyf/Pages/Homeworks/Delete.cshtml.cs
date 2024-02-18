@@ -7,11 +7,9 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using jhyf.Data;
 using jhyf.Data.Identity;
-using Microsoft.AspNetCore.Authorization;
 
-namespace jhyf.Pages.Links
+namespace jhyf.Pages.Homeworks
 {
-    //[Authorize(Roles = "Admin")]
     public class DeleteModel : PageModel
     {
         private readonly jhyf.Data.ApplicationDbContext _context;
@@ -22,7 +20,7 @@ namespace jhyf.Pages.Links
         }
 
         [BindProperty]
-        public Link Link { get; set; } = default!;
+        public AddHomework AddHomework { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -31,15 +29,15 @@ namespace jhyf.Pages.Links
                 return NotFound();
             }
 
-            var link = await _context.Links.FirstOrDefaultAsync(m => m.Id == id);
+            var addhomework = await _context.Homeworks.FirstOrDefaultAsync(m => m.Id == id);
 
-            if (link == null)
+            if (addhomework == null)
             {
                 return NotFound();
             }
             else
             {
-                Link = link;
+                AddHomework = addhomework;
             }
             return Page();
         }
@@ -51,11 +49,11 @@ namespace jhyf.Pages.Links
                 return NotFound();
             }
 
-            var link = await _context.Links.FindAsync(id);
-            if (link != null)
+            var addhomework = await _context.Homeworks.FindAsync(id);
+            if (addhomework != null)
             {
-                Link = link;
-                _context.Links.Remove(Link);
+                AddHomework = addhomework;
+                _context.Homeworks.Remove(AddHomework);
                 await _context.SaveChangesAsync();
             }
 

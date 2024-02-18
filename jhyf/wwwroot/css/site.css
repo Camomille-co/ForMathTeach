@@ -37,6 +37,15 @@ a {
     display: inline-block;
 }
 
+a:hover{
+    color: greenyellow;
+
+}
+
+/*a:visited{
+    color: lightseagreen;
+}*/
+
 .navbar-nav li:hover > .subnavbar {
     opacity: 1;
     visibility: visible;

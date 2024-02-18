@@ -8,11 +8,9 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using jhyf.Data;
 using jhyf.Data.Identity;
-using Microsoft.AspNetCore.Authorization;
 
-namespace jhyf.Pages.Links
+namespace jhyf.Pages.Homeworks
 {
-    //[Authorize(Roles = "Admin")]
     public class EditModel : PageModel
     {
         private readonly jhyf.Data.ApplicationDbContext _context;
@@ -23,7 +21,7 @@ namespace jhyf.Pages.Links
         }
 
         [BindProperty]
-        public Link Link { get; set; } = default!;
+        public AddHomework AddHomework { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -32,12 +30,12 @@ namespace jhyf.Pages.Links
                 return NotFound();
             }
 
-            var link =  await _context.Links.FirstOrDefaultAsync(m => m.Id == id);
-            if (link == null)
+            var addhomework =  await _context.Homeworks.FirstOrDefaultAsync(m => m.Id == id);
+            if (addhomework == null)
             {
                 return NotFound();
             }
-            Link = link;
+            AddHomework = addhomework;
             return Page();
         }
 
@@ -50,7 +48,7 @@ namespace jhyf.Pages.Links
                 return Page();
             }
 
-            _context.Attach(Link).State = EntityState.Modified;
+            _context.Attach(AddHomework).State = EntityState.Modified;
 
             try
             {
@@ -58,7 +56,7 @@ namespace jhyf.Pages.Links
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!LinkExists(Link.Id))
+                if (!AddHomeworkExists(AddHomework.Id))
                 {
                     return NotFound();
                 }
@@ -71,9 +69,9 @@ namespace jhyf.Pages.Links
             return RedirectToPage("./Index");
         }
 
-        private bool LinkExists(int id)
+        private bool AddHomeworkExists(int id)
         {
-            return _context.Links.Any(e => e.Id == id);
+            return _context.Homeworks.Any(e => e.Id == id);
         }
     }
 }
