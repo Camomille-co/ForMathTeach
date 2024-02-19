@@ -8,10 +8,13 @@ namespace jhyf.Data.Identity
     {
         public int Id { get; set; }
 
-        [Display(Name = "Задание")]
+        [Display(Name = "Тема")]
         public string? Name { get; set; }
         
         [Display(Name = "Ссылка на задание")]
         public string? Zadanie { get; set; }
+        
+        [Display(Name = "Задание")]
+        public string? Opisanie { get; set; }
     }
 }

@@ -24,6 +24,11 @@
                 <span asp-validation-for="AddHomework.Zadanie" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="AddHomework.Opisanie" class="control-label"></label>
+                <input asp-for="AddHomework.Opisanie" class="form-control" />
+                <span asp-validation-for="AddHomework.Opisanie" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Добавить" class="btn btn-primary" />  |
                 <a asp-page="Index">Отмена</a>
             </div>

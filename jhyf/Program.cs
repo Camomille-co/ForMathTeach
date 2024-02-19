@@ -43,6 +43,10 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+app.MapControllerRoute(
+    name: "posdefault",
+    pattern: "{controller=Admin}/{id?}");
+
 app.MapRazorPages();
 
 using (var scope = app.Services.CreateScope())

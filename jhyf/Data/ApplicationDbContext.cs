@@ -31,5 +31,7 @@ namespace jhyf.Data
         public DbSet<Link> Links { get; set; }
 
         public DbSet<AddHomework> Homeworks { get; set; }
+
+        public DbSet<AddLectures> Lectures { get; set; }
     }
 }

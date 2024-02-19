@@ -1,0 +1,19 @@
+﻿@page
+@model jhyf.Pages.NewsModel
+@{
+}
+
+@* <link href="~/lib/froala-editor/css/froala_editor.min.css" rel="stylesheet"/>
+
+<textarea id="example"></textarea>
+
+<script src="~/lib/froala-editor/js/froala_editor.min.js"></script>
+<script>
+    var example = new FroalaEditor("#example");
+</script> *@
+@if (User.IsInRole("Admin"))
+{
+    <p>
+        <a asp-page="AddNews" style=text-decoration:none;>Добавить новость</a>
+    </p>
+}

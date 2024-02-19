@@ -1,0 +1,30 @@
+﻿@page
+@model jhyf.Pages.Lectures.IndexModel
+
+@{
+    ViewData["Title"] = "Лекции";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<div class="text-center">
+    <h3 class="display-6">Лекции</h3>
+</div>
+
+@if (User.IsInRole("Admin"))
+{
+    <p>
+        <a asp-page="Create" style="text-decoration:none;">Добавть лекцию</a>
+    </p>
+}
+
+@foreach (var item in Model.AddLectures)
+{
+    <div>
+        <a href="@item.LecturesLink" style="color:lightseagreen">@item.Name</a>
+        @if (User.IsInRole("Admin"))
+        {
+            <a asp-page="./Edit" asp-route-id="@item.Id" style="text-decoration:none;">Редактировать</a>
+            <a asp-page="./Delete" asp-route-id="@item.Id" style="text-decoration:none;">Удалить</a>
+        }
+    </div>
+}
