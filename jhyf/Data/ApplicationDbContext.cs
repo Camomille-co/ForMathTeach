@@ -33,5 +33,7 @@ namespace jhyf.Data
         public DbSet<AddHomework> Homeworks { get; set; }
 
         public DbSet<AddLectures> Lectures { get; set; }
+
+        public DbSet<AddNews> News { get; set; }
     }
 }
