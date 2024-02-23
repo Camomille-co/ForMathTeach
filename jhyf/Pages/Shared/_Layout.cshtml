@@ -2,14 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
+    @* <style>
+        body {
+            background: aqua;
+            background-image: url('../img/фон.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            color: grey;
+        }
+    </style> *@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - jhyf</title>
+    <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/jhyf.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <header>
+    
+    <header >
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-page="/Index">Сайт преподавателя математики ТК ВСГУТУ</a>
@@ -24,7 +34,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="">Студентам</a>
-                            <ul class="subnavbar">
+                            <ul class="subnavbar" style="background-color:lightcyan">
                                 <li class="nav-item">
                                     <a class="nav-link text-dark" asp-area="" asp-page="/Homeworks/Index">Домашние задания</a>
                                 </li>
@@ -32,19 +42,19 @@
                                     <a class="nav-link text-dark" asp-area="" asp-page="/FOS">ФОС</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-page="/RPD">РПД</a>
+                                    <a class="nav-link text-dark" href="https://drive.google.com/file/d/16WyODj4KV2EG08-SqV2Knfb0NE-sZm-R/view?usp=drive_link">РПД</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link text-dark" asp-area="" asp-page="/Lectures/Index">Лекции</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link text-dark" asp-area="" asp-page="">Учебники</a>
-                                    <ul class="subnavbar">
+                                    <ul class="subnavbar" style="background-color:lightsteelblue">
                                         <li class="nav-item">
-                                            <a class="nav-link text-dark" href="https://documentcloud.wondershare.com/clientShare/review/bpcFVoayn8Msp0rtjRcN4bKA2AZoshEOeE5dTZRkdbSGWvlMPI4YSx9X9ARbeS29rsAIUfRLu7VZyo1Ir2Qdqw">Алгебра</a>
+                                            <a class="nav-link text-dark" href="https://drive.google.com/file/d/1vD_g2gxlFJV9vqNx8Q03_REKFxkSf3EQ/view?usp=drive_link">Алгебра</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link text-dark" href="https://documentcloud.wondershare.com/clientShare/review/bpcFVoayn8Msp0rtjRcN4aVH1i0wjQGC6tLKnsZbPl1g1NvQ69lBi-Khq1jStik9S3qV-zm8vDc9q5wWw86Uow">Геометрия</a>
+                                            <a class="nav-link text-dark" href="https://drive.google.com/file/d/1N6MB-dke0plH28rrgrvjn6UFi9ovs8pg/view?usp=drive_link">Геометрия</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -66,6 +76,7 @@
             </div>
         </nav>
     </header>
+    @* <a href="http://www.google.com"><img src="~/img/фон.jpg" width="60" height="60" /></a> *@
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
