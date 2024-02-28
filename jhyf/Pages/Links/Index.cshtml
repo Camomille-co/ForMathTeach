@@ -2,7 +2,7 @@
 @model jhyf.Pages.Links.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Ссылки";
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
@@ -11,46 +11,59 @@
 @if(User.IsInRole("Admin"))
 {
 <p>
-    <a asp-page="Create">Добавить ссылку</a>
+    <a asp-page="Create" style="text-decoration:none">Добавить ссылку</a>
 </p>
 }
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Link[0].NameFromLink)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Link[0].Linki)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.Link) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.NameFromLink)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Linki)
-            </td>
-            @if(User.IsInRole("Admin"))
-                {
-                <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Редактировать</a>  |
-                <a asp-page="./Details" asp-route-id="@item.Id">Детали</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Удалить</a>
-                </td>
-                    
-                }
-            @if(User.IsInRole("User"))
-                {
-                    <td>
-                        <a asp-page="./Details" asp-route-id="@item.Id">Детали</a>
-                    </td>
-                }
-        </tr>
+
+<div>
+    <a href="https://www.yaklass.ru/?h" style="color:lightseagreen; text-decoration:underline">Якласс</a>
+</div>
+<div>
+    <a href="https://resh.edu.ru" style="color:lightseagreen; text-decoration:underline">РЭШ</a>
+</div>
+<div>
+    <a href="https://fioco.ru/obraztsi_i_opisaniya_vpr_2023" style="color:lightseagreen; text-decoration:underline">ФИОКО(ВПР)</a>
+</div>
+
+@foreach(var item in Model.Link)
+{
+    <div>
+        <a href="@item.Linki" style="color:lightseagreen">@item.NameFromLink</a>
+        @if (User.IsInRole("Admin"))
+        {
+            <a asp-page="./Edit" asp-route-id="@item.Id" style="text-decoration:none">Редактировать</a> 
+            <a asp-page = "./Delete" asp-route-id = "@item.Id" style="text-decoration:none">Удалить</a>
+        }
+    </div>
 }
-    </tbody>
-</table>
+
+
+@* <div class="row">
+    <div class="col-md-6 col-md-offset-2">
+        <section>
+            @if (User.IsInRole("Admin"))
+            {
+                <p>
+                    <a asp-page="Create" style="text-decoration:none">Добавить ссылку</a>
+                </p>
+            }
+
+            @foreach (var item in Model.Link)
+            {
+                <div>
+                    <a href="@item.Linki" style="color:lightseagreen">@item.NameFromLink</a>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <a asp-page="./Edit" asp-route-id="@item.Id" style="text-decoration:none">Редактировать</a>
+                        <a asp-page="./Delete" asp-route-id="@item.Id" style="text-decoration:none">Удалить</a>
+                    }
+                </div>
+            }
+        </section>
+    </div>
+    <div class="col-md-6">
+        <section>
+            <div>Hello</div>
+        </section>
+    </div>
+</div> *@
