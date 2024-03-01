@@ -31,11 +31,28 @@ namespace jhyf.Pages.NeWs
         public AddNews AddNews { get; set; } = default!;
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync([Bind("Id,...ImageNews")] AddNews news, IFormFile Image)
         {
             if (!ModelState.IsValid)
             {
                 return Page();
+
+                //if (Image!=null)
+                //{
+                //    if(Image.Length > 0)
+                //    {
+                //        byte[] p1 = null;
+                //        using (var fs1 = Image.OpenReadStream())
+                //        {
+                //            using (var ms1 = new MemoryStream())
+                //            {
+                //                fs1.CopyTo(ms1);
+                //                p1 = ms1.ToArray();
+                //            }
+                //            AddNews.ImageNews = p1;
+                //        }
+                //    }
+                //}
             }
 
             _context.News.Add(AddNews);
@@ -44,24 +61,24 @@ namespace jhyf.Pages.NeWs
             return RedirectToPage("./Index");
         }
 
-        [HttpPost]
-        public async Task<IActionResult> AddFile(IFormFile uploadedFile)
-        {
-            if (uploadedFile != null)
-            {
-                string path = "/Files/" + uploadedFile.FileName;
+        //[HttpPost]
+        //public async Task<IActionResult> AddFile(IFormFile uploadedFile)
+        //{
+        //    if (uploadedFile != null)
+        //    {
+        //        string path = "/Files/" + uploadedFile.FileName;
 
-                using (var fileStream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
-                {
-                    await uploadedFile.CopyToAsync(fileStream);
-                }
+        //        using (var fileStream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
+        //        {
+        //            await uploadedFile.CopyToAsync(fileStream);
+        //        }
 
-                AddNews file = new AddNews { NameFile = uploadedFile.FileName, ImageNews = path };
-                _context.News.Add(file);
-                _context.SaveChanges();
-            }
+        //        AddNews file = new AddNews { NameFile = uploadedFile.FileName, ImageNews = path };
+        //        _context.News.Add(file);
+        //        _context.SaveChanges();
+        //    }
 
-            return RedirectToAction("Index");
-        }
+        //    return RedirectToAction("Index");
+        //}
     }
 }

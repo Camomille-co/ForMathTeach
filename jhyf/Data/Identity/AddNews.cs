@@ -10,10 +10,12 @@ namespace jhyf.Data.Identity
         public string? Title { get; set; }
         [Display(Name = "Название файла")]
         public string? NameFile { get; set; }
-        [Display(Name = "Название файла")]
-        public string? ImageNews { get; set; }
+        [Display(Name = "Фото")]
+        public byte[]? ImageNews { get; set; }
         [Display(Name = "Текст новости")]
         public string? Description { get; set; }
+        //[Display(Name = "Файл")]
+        //public string? File { get; set; }
         [Display(Name = "Дата создания")]
         public DateTime Created { get; set; } = DateTime.Now;
         [Display(Name = "Дата последнего обновления")]

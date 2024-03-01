@@ -118,6 +118,7 @@
         <div class="col-md-4" style="background-color:lightsteelblue">
             <section>
                 @Html.DisplayFor(modelItem => item.ImageNews)
+                @* @Html.DisplayFor("<img style='width=250px; height=200px;' src=\"data:image/jpg;base64," + Convert.ToBase64String(item.ImageNews) + "\" />") *@
             </section>
         </div>
         <div class="col-md-6 col-md-offset-2" style="background-color:lightsteelblue">

@@ -10,7 +10,27 @@
 
 <h4>AddNews</h4>
 <hr />
-<div class="row">
+<form method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="mb-3">
+        <label for="Title" class="form-label" asp-for="AddNews.Title">Заголовок</label>
+        <input type="text" class="form-control" id="Title" asp-for="AddNews.Title">
+    </div>
+    <div class="input-group mb-3">
+        @* <label class="input-group-text" for="ImageNews">Выбрать файл</label> *@
+        <input type="file" class="form-control" id="ImageNews" asp-for="AddNews.ImageNews">
+    </div>
+    <div class="mb-3">
+        <label for="Description" class="form-label" asp-for="AddNews.Description">Текст публикации</label>
+        <textarea id="Description" asp-for="AddNews.Description"></textarea>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Сохранить" class="btn btn-primary" /> |
+        <a asp-page="Index">Отмена</a>
+    </div>
+</form>
+
+@* <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -45,12 +65,14 @@
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-page="./Index">Back to List</a>
-</div>
+</div> *@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
+<script src="~/lib/froala-editor/js/froala_editor.min.js"></script>
+<script>
+    var description = new FroalaEditor("#Description");
+    var shortDescription = new FroalaEditor("#shortDescription");
+</script>
